@@ -28,29 +28,27 @@ server using TCPSockets
 ```
 import socket
 s=socket.socket()
-s.bind(('localhost',8080))
+s.bind(('localhost',8000))
 s.listen(5)
 c,addr=s.accept()
+address={"165.165.80.80":"6A:08:AA:C2","165.165.79.1":"8A:BC:E3:FA"};
 while True:
-	i=input("ENter a data:")
-	c.send(i.encode())
-	ack=c.recv(1024).decode()
-	if ack:
-		print(ack)
-		continue
-	else:
-		c.close()
-		break
+ ip=c.recv(1024).decode()
+ try:
+ c.send(address[ip].encode())
+ except KeyError:
+ c.send("Not Found".encode())
 ```
 
 ## SERVER PROGRAM :
 ```
 import socket
 s=socket.socket()
-s.connect(('localhost',8080))
-while True:
-	print(s.recv(1024).decode())
-	s.send("Recieved".encode())
+s.connect(('localhost',8000))
+print(s.getsockname())
+print(s.recv(1024).decode())
+s.send("acknowledgement recived from the server".encode())
+
 ``` 
 
 ## CLIENT OUTPUT :
