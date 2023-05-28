@@ -2,16 +2,28 @@
 ## EXP: 1
 ## DATE :08-03-2023
 ## AIM :
-To write a python program to perform stop and wait protocol
+To implement socket programming date and time display from client to
+server using TCPSockets
 ## ALGORITHM :
-
-1. Start the program.
-2. Get the frame size from the user
-3. To create the frame based on the user request.
-4. To send frames to server from the client side.
-5. If your frames reach the server it will send ACK signal to client otherwise it will sendNACK signal to client.
-6. Stop the program
-
+## Server:
+1. Create a server socket and bind it to port.
+2. Listen for new connection and when a connection arrives, accept it.
+3. Send server‟s date and time to the client.
+4. Read client‟s IP address sent by the client.
+5. Display the client details.
+6. Repeat steps 2-5 until the server is terminated.
+7. Close all streams.
+8. Close the server socket.
+9. Stop.
+## Client:
+1. Create a client socket and connect it to the server‟s port number.
+2. Retrieve its own IP address using built-in function.
+3. Send its address to the server.
+4. Display the date & time sent by the server.
+5. Close the input and output streams.
+6. Close the client socket.
+7. Stop.
+# PROGRAM:
 ## CLIENT PROGRAM :
 ```
 import socket
@@ -46,6 +58,7 @@ while True:
 ## SERVER OUTPUT:
 ![Output](./server1.png)
 ## RESULT:
-Thus, python program to perform stop and wait protocol was successfully executed.
+Thus, the program to implement socket programming date and time display from client to 
+server using TCP Sockets was successfully executed.
 
 
